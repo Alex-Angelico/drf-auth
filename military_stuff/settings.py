@@ -137,11 +137,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.IsAuthenticated'
+            'rest_framework.permissions.IsAuthenticated'
         ],
     'DEFAULT_AUTHENTICATION_CLASSES' : [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'rest_framework_authentication.SessionAuthentication',
-        # 'rest_framework_authentication.BasicAuthentication'
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+            # 'rest_framework_authentication.SessionAuthentication',
+            # 'rest_framework_authentication.BasicAuthentication'
         ]
 }
+
+LOGIN_REDIRECT_URL = 'jets_list'

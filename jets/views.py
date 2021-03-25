@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .serializers import JetsSerializer
 from .models import Jets
 
-class JetsListView(generics.ListAPIView):
+class JetsListView(generics.ListCreateAPIView):
   permission_classes = (IsAuthenticatedOrReadOnly,)
   queryset = Jets.objects.all()
   serializer_class = JetsSerializer
