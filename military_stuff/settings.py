@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jets.apps.JetsConfig',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -85,11 +87,11 @@ WSGI_APPLICATION = 'military_stuff.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'postgres',
-		'USER': 'admin',
-		'PASSWORD': '123',
-		'HOST': 'db',
-		'PORT': 5432,
+		'NAME': env('DATABASE_NAME'),
+		'USER': env('DATABASE_USER'),
+		'PASSWORD': env('DATABASE_PASSWORD'),
+		'HOST': env('DATABASE_HOST'),
+		'PORT': env('DATABASE_PORT'),
 	}
 }
 
@@ -141,9 +143,12 @@ REST_FRAMEWORK = {
         ],
     'DEFAULT_AUTHENTICATION_CLASSES' : [
             'rest_framework_simplejwt.authentication.JWTAuthentication',
-            # 'rest_framework_authentication.SessionAuthentication',
-            # 'rest_framework_authentication.BasicAuthentication'
+            'rest_framework_authentication.SessionAuthentication',
+            'rest_framework_authentication.BasicAuthentication'
         ]
 }
 
 LOGIN_REDIRECT_URL = 'jets_list'
+
+CORS_ORIGIN_WHITELIST = tuple(env.list('ALLOWED_ORIGINS'))
+CORS_ALLOW_ALL_ORIGINS = env.bool('ALLOW_ALL_ORIGINS')
