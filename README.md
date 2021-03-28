@@ -40,4 +40,5 @@ Within `drf-auth`, use `docker-compose up -d` and navigate to `localhost:8000/ap
 
 ## Change Log
 
+1.0.5: *Reconfigured files for AWS deployment* - 27 Mar 2021
 1.0: *Authentication token implementation, database persistence, and production server containerization complete* - 25 Mar 2021
