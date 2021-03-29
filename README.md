@@ -28,7 +28,7 @@ Clone this repository to your local machine.
 $ git clone https://github.com/Alex-Angelico/drf-auth.git
 ```
 
-### To run the program from VSCode:
+### Execution
 
 Open VSCode
 
