@@ -10,7 +10,7 @@ Author: Alex Angelico
 
 ## Open PR
 
-https://github.com/Alex-Angelico/drf-auth/pull/1
+https://github.com/Alex-Angelico/drf-auth/pull/4
 
 ----
 
